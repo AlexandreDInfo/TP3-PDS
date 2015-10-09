@@ -84,17 +84,17 @@ int main(int argc, char *argv[]){
 
 	while((c = getopt(argc, argv, "n:")) != -1){
 
-    switch(c){
+	    switch(c){
 
-      case 'n':
+	      	case 'n':
+	      		arg = atoi(optarg);
+	    	    tail(argv[1], arg);
+	       		return 0;
+	    }
 
-        arg = atoi(optarg);
-
-        tail(argv[1], arg);
-
-        break;
     }
-  }
+
+    tail(argv[1], 10);
 	
-	return 0;
+	return 1;
 }
