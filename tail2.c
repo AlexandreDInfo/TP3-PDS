@@ -6,9 +6,8 @@
 #include <fcntl.h>
 #define BUFSIZE_G 10
 
-int 
-index_tail_buffer(const char *buffer, int bufsize, int ntail, int *nlines)
-{
+int index_tail_buffer(const char *buffer, int bufsize, int ntail, int *nlines){
+	
 	int i;
 	i=0;
 	while(i < bufsize && *nlines <= ntail)
@@ -26,13 +25,14 @@ index_tail_buffer(const char *buffer, int bufsize, int ntail, int *nlines)
 	return(bufsize-i);
 }
 
-void
-tail_before_pos(int fd, unsigned int pos, int ntail){
+void tail_before_pos(int fd, unsigned int pos, int ntail){
+
 	int nlines;
 	int c;
 	int i;
 	int readsize;
 	char buffer[BUFSIZE_G];
+
 	nlines = 0;
 	lseek(fd, pos - BUFSIZE_G, SEEK_SET);
 	readsize = read(fd, buffer, BUFSIZE_G);
